@@ -1,0 +1,10 @@
+SELECT 
+    CONCAT(
+        TO_CHAR(TO_DATE(SUBSTRING(yr_desc, LENGTH(yr_desc) - 9, 10), 'MM-DD-YYYY') - INTERVAL '6 DAY', 'Mon DD YYYY'),
+        ' - ',
+        TO_CHAR(TO_DATE(SUBSTRING(yr_desc, LENGTH(yr_desc) - 9, 10), 'MM-DD-YYYY'), 'Mon DD YYYY')
+    ) AS new_yr_desc,
+    yr_desc AS old_yr_desc,
+    hr_flag
+FROM your_table
+WHERE hr_flag = 23;
